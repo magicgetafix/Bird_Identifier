@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Find That Bird!</string>
+    <string name="identify_bird">What is this bird?</string>
+    <string name="failed_to_find_photo">Failed to find photo</string>
+    <string name="failed_to_process_image">Failed to process image</string>
+    <string name="please_select_a_bird_photo">Select a Picture of a Bird</string>
+    <string name="view_more">View More</string>
+    <string name="view_info">View Info</string>
+    <string name="latin_name">Latin Name:</string>
+    <string name="percentage_accuracy">Match Accuracy:</string>
+    <string name="bird_matches">Possible Matches:</string>
+</resources>
