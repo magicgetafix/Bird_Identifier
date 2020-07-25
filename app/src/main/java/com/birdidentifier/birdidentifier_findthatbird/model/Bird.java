@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.birdidentifier.birdidentifier_findthatbird.Constants;
+import com.birdidentifier.birdidentifier_findthatbird.Tools;
 
 public class Bird implements Parcelable {
 
@@ -44,7 +45,8 @@ public class Bird implements Parcelable {
         }
         this.id = id;
         this.percentageAccuracy = (int) (percentageAccuracy * 100);
-        if (!this.englishName.isEmpty()){
+        if (!this.englishNameUnderscored.isEmpty()){
+            this.englishNameUnderscored = Tools.toProperCase(this.englishNameUnderscored);
             this.wikipediaUrl = Constants.WIKIPEDIA_URL + this.englishNameUnderscored;
         }
         else{

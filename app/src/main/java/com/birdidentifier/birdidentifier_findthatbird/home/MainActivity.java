@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements BirdAdapter.BirdC
     private ImageView birdPhotoView;
     private Button identifyBirdButton;
     private ImageView deletePhoto;
+    private ImageView deletePhotoBackground;
     private ImageView cameraShutterButton;
     private LocalModel birdIdentificationModel;
     private CustomImageLabelerOptions customImageLabelerOptions;
@@ -76,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements BirdAdapter.BirdC
         birdPhotoView = findViewById(R.id.bird_image_view);
         identifyBirdButton = findViewById(R.id.button);
         deletePhoto = findViewById(R.id.delete_bird_image_button);
+        deletePhotoBackground = findViewById(R.id.delete_bird_image_button_background);
         cameraShutterButton = findViewById(R.id.photo_shutter_button);
         birdInstructions = findViewById(R.id.bird_instructions);
         recyclerView = findViewById(R.id.bird_recycler_view);
@@ -114,6 +116,7 @@ public class MainActivity extends AppCompatActivity implements BirdAdapter.BirdC
             public void onClick(View v) {
                 birdPhotoView.setImageDrawable(null);
                 deletePhoto.setVisibility(View.INVISIBLE);
+                deletePhotoBackground.setVisibility(View.INVISIBLE);
                 birdInstructions.setVisibility(View.VISIBLE);
             }
         });
@@ -132,6 +135,7 @@ public class MainActivity extends AppCompatActivity implements BirdAdapter.BirdC
                     .centerInside()
                     .into(birdPhotoView);
             deletePhoto.setVisibility(View.VISIBLE);
+            deletePhotoBackground.setVisibility(View.VISIBLE);
             birdInstructions.setVisibility(View.INVISIBLE);
         }
     }
@@ -270,13 +274,14 @@ public class MainActivity extends AppCompatActivity implements BirdAdapter.BirdC
     public void onClick(Bird bird) {
 
         if (bird!=null){
-
             Intent webActivityIntent = new Intent(this, WebActivity.class);
             webActivityIntent.putExtra(WebActivity.BIRD_NAME_KEY, bird.getEnglishName());
             webActivityIntent.putExtra(WebActivity.URL_KEY, bird.getWikipediaUrl());
             startActivity(webActivityIntent);
         }
     }
+
+
 
 
 }
